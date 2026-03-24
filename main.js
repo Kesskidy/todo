@@ -9,14 +9,25 @@ form.addEventListener("submit", (e) => {
 
     if (value === "") return;
 
-    const task = document.createElement("div");
-    const span = document.createElement("span");
+    const card = document.createElement("div");
+    card.classList.add("card");
 
-    span.textContent = value;
+    card.innerHTML = `
+      <div class="card-inner">
+        <div class="card-front">
+          <span class="wtf-text">WTF?</span>
+          <span class="card-hint">CLICK 2 REVEAL</span>
+        </div>
+        <div class="card-back">
+          <span class="task-text">${value}</span>
+        </div>
+      </div>
+    `;
 
-    task.appendChild(span);
-    task.classList.add("task-item");
+    card.addEventListener("click", () => {
+      card.classList.toggle("flipped");
+    });
 
-    tasklist.appendChild(task);
+    tasklist.appendChild(card);
     input.value = "";
 });

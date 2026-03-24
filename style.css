@@ -55,3 +55,101 @@
 .animate-scroll-right {
   animation: scrollRight 25s linear infinite;
 }
+
+/* ── Tasklist grid ── */
+#tasklist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem 1rem;
+}
+
+/* ── Flip card shell ── */
+.card {
+  width: 160px;
+  height: 160px;
+  perspective: 800px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(.4,0,.2,1);
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* ── Shared face styles ── */
+.card-front {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #ff1493;
+  border: 3px solid #000;
+  box-shadow: 8px 8px 0 #ccff00;
+}
+
+.card-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 3px solid #000;
+  box-shadow: 8px 8px 0 #ccff00;
+}
+
+/* ── Front face ── */
+.card-front {
+  gap: 0.5rem;
+}
+
+.wtf-text {
+  font-family: 'Anton', sans-serif;
+  font-size: 2.5rem;
+  color: #fff;
+  background: #000;
+  padding: 0.1em 0.4em;
+  letter-spacing: -2px;
+  line-height: 1;
+  border: 2px solid #000;
+}
+
+.card-hint {
+  font-family: 'Anton', sans-serif;
+  font-size: 0.45rem;
+  letter-spacing: 0.18em;
+  color: #fff;
+  background: #000;
+  padding: 0.3rem 0.7rem;
+}
+
+/* ── Back face ── */
+.card-back {
+  transform: rotateY(180deg);
+  padding: 1rem;
+}
+
+.task-text {
+  font-family: 'Anton', sans-serif;
+  font-size: 1.4rem;
+  color: #ff1493;
+  text-align: center;
+  text-transform: uppercase;
+  word-break: break-word;
+}
