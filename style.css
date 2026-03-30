@@ -56,7 +56,6 @@
   animation: scrollRight 25s linear infinite;
 }
 
-/* ── Tasklist grid ── */
 #tasklist {
   display: flex;
   flex-wrap: wrap;
@@ -64,7 +63,6 @@
   padding: 2rem 1rem;
 }
 
-/* ── Flip card shell ── */
 .card {
   width: 160px;
   height: 160px;
@@ -85,7 +83,6 @@
   transform: rotateY(180deg);
 }
 
-/* ── Shared face styles ── */
 .card-front {
   position: absolute;
   inset: 0;
@@ -95,7 +92,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #ff1493;
+  background-color: #ff1493;
   border: 3px solid #000;
   box-shadow: 8px 8px 0 #ccff00;
 }
@@ -114,7 +111,6 @@
   box-shadow: 8px 8px 0 #ccff00;
 }
 
-/* ── Front face ── */
 .card-front {
   gap: 0.5rem;
 }
@@ -139,7 +135,6 @@
   padding: 0.3rem 0.7rem;
 }
 
-/* ── Back face ── */
 .card-back {
   transform: rotateY(180deg);
   padding: 1rem;
@@ -152,4 +147,33 @@
   text-align: center;
   text-transform: uppercase;
   word-break: break-word;
+}
+
+.nuke-btn {
+  background: #ff0000;
+  color: #fff;
+  border: 2px solid #000;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  font-family: 'Anton', sans-serif;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  box-shadow: 4px 4px 0 #000;
+  transition: all 0.2s;
+}
+
+.nuke-btn:hover {
+  background: #cc0000;
+  box-shadow: 2px 2px 0 #000;
+}
+
+@keyframes explode {
+  0% { transform: scale(1) rotate(0deg); opacity: 1; }
+  50% { transform: scale(1.5) rotate(180deg); opacity: 0.5; }
+  100% { transform: scale(0) rotate(360deg); opacity: 0; }
+}
+
+.exploding {
+  animation: explode 1s ease-out forwards;
 }
