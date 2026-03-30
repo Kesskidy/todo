@@ -12,7 +12,6 @@ try {
     tasks = [];
 }
 
-// Load initial theme from localStorage
 if (localStorage.getItem("theme") === "light") {
     document.body.classList.add("light-theme");
     themeToggle.textContent = "DARK MODE";
@@ -33,13 +32,13 @@ themeToggle.addEventListener("click", () => {
 function saveTasks() {
     localStorage.setItem("wtf_tasks", JSON.stringify(tasks));
 }
-
+//La carte de base quand il n'y a pas de tâche
 function renderTasks(animateId = null) {
     tasklist.innerHTML = "";
 
     if (tasks.length === 0) {
         tasklist.innerHTML = `
-            <div class="w-full flex justify-center items-center py-10 md:py-20 pop-in">
+            <div class="w-full col-span-full flex justify-center items-center py-10 md:py-20 pop-in">
                 <h2 class="empty-state">
                     YOU HAVE NOTHING TO DO?
                     <br><span class="text-[#00f632] shadow-none">BULLSHIT.</span>
@@ -49,7 +48,7 @@ function renderTasks(animateId = null) {
         `;
         return;
     }
-
+    //génération de la tâche avec les données donné dans le form
     tasks.forEach(task => {
         const card = document.createElement("div");
         card.classList.add("card");
@@ -73,16 +72,31 @@ function renderTasks(animateId = null) {
             </div>
           </div>
         `;
-
+        //fonction pour supprimer la tâche mais aussi pour gérer l'effet d'explosion
         const nukeBtn = card.querySelector('.nuke-btn');
         nukeBtn.addEventListener('click', (e) => {
           e.stopPropagation();
-          card.classList.add('exploding');
+          card.classList.add('exploding');//Déclenche le gonflement/surcharge de la carte
+          
+          setTimeout(() => {
+            const flash = document.createElement("div");
+            flash.className = "fixed inset-0 bg-white z-[9999] pointer-events-none mix-blend-difference";
+            flash.style.animation = "nuclearFlash 0.8s ease-out forwards";
+            document.body.appendChild(flash);
+            
+            document.body.classList.add('screen-shake');
+            
+            setTimeout(() => {
+              flash.remove();
+              document.body.classList.remove('screen-shake');
+            }, 800);
+          }, 360); // À 360 millisecondes : Ajoute la div "flash" inversée et secoue l'écran !
+
           setTimeout(() => {
             tasks = tasks.filter(t => t.id !== task.id);
             saveTasks();
             renderTasks();
-          }, 350);
+          }, 600);// À 600 millisecondes : Supprime la donnée et la carte de l'écran
         });
 
         card.addEventListener("click", () => {
