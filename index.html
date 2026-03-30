@@ -33,10 +33,10 @@
         </p>
     </header>
 
-    <div id="form" class="text-white [.light-theme_&]:!text-black pl-5 md:pl-0 md:max-w-4xl md:mx-auto">
-        <form class="md:flex md:gap-4 md:w-full md:justify-center md:items-center">
-            <input id="field" class="w-60 md:w-2/3 bg-white [.light-theme_&]:!bg-[#ffffff] [.light-theme_&]:!text-black [.light-theme_&]:!border-[3px] [.light-theme_&]:!border-black [.light-theme_&]:!shadow-[6px_6px_0_#000] pt-3 pb-3 md:py-4 text-gray-700 pl-2 md:pl-4 md:text-xl focus:outline-none" placeholder="ENTER A TASK RIGHT NOW">
-            <button id="submit" type="submit" class="bg_green [.light-theme_&]:!border-[3px] [.light-theme_&]:!border-black [.light-theme_&]:!shadow-[6px_6px_0_#000] [.light-theme_&]:!text-black p-3 md:py-4 md:px-8 md:text-xl font-bold uppercase transition-transform hover:scale-105 mt-2 md:mt-0">Add Task</button>
+    <div id="form" class="text-white px-5 md:px-0 md:max-w-4xl md:mx-auto">
+        <form class="flex flex-col md:flex-row gap-4 md:gap-6 w-full justify-center items-center">
+            <input id="field" autocomplete="off" class="w-full md:w-2/3 bg-white py-4 text-black pl-4 font-['Anton',_sans-serif] text-xl md:text-2xl border-[4px] border-black shadow-[8px_8px_0_#ccff00] focus:outline-none focus:translate-y-1 focus:translate-x-1 focus:shadow-[4px_4px_0_#ccff00] transition-all" placeholder="ENTER A TASK RIGHT NOW">
+            <button id="submit" type="submit" class="bg_green w-full md:w-auto py-4 px-8 text-black font-['Anton',_sans-serif] text-xl md:text-2xl uppercase border-[4px] border-black shadow-[8px_8px_0_#ff1493] hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0_#ff1493] active:translate-x-2 active:translate-y-2 active:shadow-none transition-all cursor-pointer">Add Task</button>
         </form>
     </div>
 
