@@ -105,10 +105,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background: #fff;
-  border: 3px solid #000;
-  box-shadow: 8px 8px 0 #ccff00;
+  justify-content: space-between;
+  background: #ccff00;
+  border: 3px solid black;
+  box-shadow: 8px 8px 0 #ff1493;
+  color: #000;
 }
 
 .card-front {
@@ -143,15 +144,32 @@
 .task-text {
   font-family: 'Anton', sans-serif;
   font-size: 1.4rem;
-  color: #ff1493;
+  color: #000;
   text-align: center;
   text-transform: uppercase;
   word-break: break-word;
+  overflow-y: auto;
+  min-height: 0;
+  width: 100%;
+  padding-right: 4px;
+}
+
+.task-text::-webkit-scrollbar {
+  width: 6px;
+}
+
+.task-text::-webkit-scrollbar-track {
+  background: transparent;
+  border-left: 2px solid #000;
+}
+
+.task-text::-webkit-scrollbar-thumb {
+  background: #000;
 }
 
 .nuke-btn {
-  background: #ff0000;
-  color: #fff;
+  background: #ff1493;
+  color: #000;
   border: 2px solid #000;
   padding: 0.5rem 1rem;
   margin-top: 0.5rem;
@@ -164,7 +182,7 @@
 }
 
 .nuke-btn:hover {
-  background: #cc0000;
+  background: #db117d;
   box-shadow: 2px 2px 0 #000;
 }
 
