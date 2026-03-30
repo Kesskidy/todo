@@ -4,14 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>WTF TODO</title>
     <link href="./style.css" rel="stylesheet">
 </head>
 
-<body>
-    <div class="bg-black h-screen w-screen">
-        
+<body class="bg-black h-screen w-screen pt-8">
+    <div class="bg-marquee-container">
+        <div class="bg-marquee-line animate-scroll-left">DO IT NOW •Q NO EXCUSES • DO IT NOW • NO EXCUSES • DO ITNOW • NO EXCUSES</div>
+        <div class="bg-marquee-line pink animate-scroll-right">GET SHIT DONE • GET SHIT DONE • GET SHIT DONE • GETSHIT DONE</div>
+        <div class="bg-marquee-line blue animate-scroll-left">TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODOTODO</div>
+        <div class="bg-marquee-line animate-scroll-right">DO IT NOW • NO EXCUSES • DO IT NOW • NO EXCUSES • DO IT NOW • NO EXCUSES</div>
+        <div class="bg-marquee-line pink animate-scroll-left">GET SHIT DONE • GET SHIT DONE • GET SHIT DONE • GETSHIT DONE</div>
     </div>
+
+    <header class="border_neon_green mb-16 border-b-5 border-r-5 bg-black p-4 shadow-brutal transform -rotate-2">
+        <h1 class=" text-white text-4xl font-anton tracking-tighter uppercase leading-none">
+            WTF ToDo
+        </h1>
+        <p class="font-mono text-xl mt-4 text-pink-600 uppercase font-bold tracking-widest overflow-hidden">
+            Stop crying, start doing.
+        </p>
+    </header>
+
+    <div id="form" class="text-white pl-5">
+        <form>
+            <input id="field" class="w-60 bg-white pt-3 pb-3 text-gray-700 pl-2" placeholder="ENTER A TASK RIGHT NOW">
+            <button id="submit" type="submit" class="bg_green p-3">Add Task</button>
+        </form>
+    </div>
+
+    <div id="tasklist" class="text-white">
+
+>>>>>>> mateo
+    </div>
+
     <script type="module" src="./main.js"></script>
 </body>
 
