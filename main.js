@@ -34,7 +34,7 @@ function saveTasks() {
     localStorage.setItem("wtf_tasks", JSON.stringify(tasks));
 }
 
-function renderTasks() {
+function renderTasks(animateId = null) {
     tasklist.innerHTML = "";
 
     if (tasks.length === 0) {
@@ -52,7 +52,13 @@ function renderTasks() {
 
     tasks.forEach(task => {
         const card = document.createElement("div");
-        card.classList.add("card", "pop-in");
+        card.classList.add("card");
+        if (task.id === animateId) {
+            card.classList.add("pop-in");
+        }
+        if (task.flipped) {
+            card.classList.add("flipped");
+        }
         card.dataset.id = task.id;
         
         card.innerHTML = `
@@ -71,13 +77,17 @@ function renderTasks() {
         const nukeBtn = card.querySelector('.nuke-btn');
         nukeBtn.addEventListener('click', (e) => {
           e.stopPropagation();
-          tasks = tasks.filter(t => t.id !== task.id);
-          saveTasks();
-          renderTasks();
+          card.classList.add('exploding');
+          setTimeout(() => {
+            tasks = tasks.filter(t => t.id !== task.id);
+            saveTasks();
+            renderTasks();
+          }, 350);
         });
 
         card.addEventListener("click", () => {
           card.classList.toggle("flipped");
+          task.flipped = card.classList.contains("flipped");
         });
 
         tasklist.appendChild(card);
@@ -98,14 +108,16 @@ form.addEventListener("submit", (e) => {
     const colors = ["#ff1493", "#00f632", "#00bfff"];
     const value_color = colors[Math.floor(Math.random() * colors.length)];
     
-    tasks.push({
+    const newTask = {
         id: Date.now(),
         text: value,
         color: value_color
-    });
+    };
+    
+    tasks.push(newTask);
 
     saveTasks();
-    renderTasks();
+    renderTasks(newTask.id);
     input.value = "";
 });
 
