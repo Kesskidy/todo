@@ -8,7 +8,14 @@
     <link href="./style.css" rel="stylesheet">
 </head>
 
-<body class="bg-black min-h-screen w-full pt-8 overflow-x-hidden">
+
+<body class="bg-black min-h-screen w-full pt-4 md:pt-6 overflow-x-hidden transition-colors duration-300 relative">
+    <div class="flex justify-end px-6 md:px-8 mb-10 z-50 relative">
+        <button id="theme-toggle" class="bg-[#ccff00] text-black font-['Anton',_sans-serif] uppercase px-4 py-2 border-[3px] border-black shadow-[6px_6px_0_#ff1493] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all z-50 text-base md:text-xl cursor-pointer">
+            Light Mode
+        </button>
+    </div>
+
     <div class="bg-marquee-container">
         <div class="bg-marquee-line animate-scroll-left">DO IT NOW •Q NO EXCUSES • DO IT NOW • NO EXCUSES • DO ITNOW • NO EXCUSES</div>
         <div class="bg-marquee-line pink animate-scroll-right">GET SHIT DONE • GET SHIT DONE • GET SHIT DONE • GETSHIT DONE</div>
@@ -17,8 +24,8 @@
         <div class="bg-marquee-line pink animate-scroll-left">GET SHIT DONE • GET SHIT DONE • GET SHIT DONE • GETSHIT DONE</div>
     </div>
 
-    <header class="border_neon_green mb-16 border-b-5 border-r-5 bg-black p-4 md:p-10 md:max-w-4xl md:mx-auto md:text-center shadow-brutal transform -rotate-2 md:-rotate-1">
-        <h1 class=" text-white text-4xl md:text-7xl font-anton tracking-tighter uppercase leading-none">
+    <header class="border_neon_green mx-5 md:mx-auto mb-16 border-b-5 border-r-5 bg-black p-4 md:p-10 md:max-w-4xl md:text-center shadow-brutal transform -rotate-2 md:-rotate-1">
+        <h1 class=" text-white text-4xl md:text-7xl font-['Anton',_sans-serif] tracking-tighter uppercase leading-none">
             WTF ToDo
         </h1>
         <p class="font-mono text-xl md:text-2xl mt-4 md:mt-6 text-pink-600 uppercase font-bold tracking-widest overflow-hidden">
