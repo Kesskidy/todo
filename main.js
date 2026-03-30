@@ -42,8 +42,8 @@ form.addEventListener("submit", (e) => {
   card.innerHTML = `
       <div class="card-inner">
         <div class="card-front bg-[${value_color}]">
-          <span class="wtf-text">WTF?</span>
-          <span class="card-hint">CLICK 2 REVEAL</span>
+          <span class="wtf-text [.light-theme_&]:!bg-white [.light-theme_&]:!text-black [.light-theme_&]:!border-black">WTF?</span>
+          <span class="card-hint [.light-theme_&]:!bg-white [.light-theme_&]:!text-black [.light-theme_&]:!border-black">CLICK 2 REVEAL</span>
         </div>
         <div class="card-back">
           <span class="task-text">${value}</span>
