@@ -32,7 +32,6 @@ themeToggle.addEventListener("click", () => {
 function saveTasks() {
     localStorage.setItem("wtf_tasks", JSON.stringify(tasks));
 }
-//La carte de base quand il n'y a pas de tâche
 function renderTasks(animateId = null) {
     tasklist.innerHTML = "";
 
@@ -48,7 +47,6 @@ function renderTasks(animateId = null) {
         `;
         return;
     }
-    //génération de la tâche avec les données donné dans le form
     tasks.forEach(task => {
         const card = document.createElement("div");
         card.classList.add("card");
@@ -72,11 +70,10 @@ function renderTasks(animateId = null) {
             </div>
           </div>
         `;
-        //fonction pour supprimer la tâche mais aussi pour gérer l'effet d'explosion
         const nukeBtn = card.querySelector('.nuke-btn');
         nukeBtn.addEventListener('click', (e) => {
           e.stopPropagation();
-          card.classList.add('animate-explode', 'pointer-events-none', 'z-[100]', 'relative');//Déclenche le gonflement/surcharge de la carte
+          card.classList.add('animate-explode', 'pointer-events-none', 'z-[100]', 'relative');
           
           setTimeout(() => {
             const flash = document.createElement("div");
@@ -90,13 +87,13 @@ function renderTasks(animateId = null) {
               flash.remove();
               document.body.classList.remove('screen-shake');
             }, 800);
-          }, 360); // À 360 millisecondes : Ajoute la div "flash" inversée et secoue l'écran !
+          }, 360);
 
           setTimeout(() => {
             tasks = tasks.filter(t => t.id !== task.id);
             saveTasks();
             renderTasks();
-          }, 600);// À 600 millisecondes : Supprime la donnée et la carte de l'écran
+          }, 600);
         });
 
         card.addEventListener("click", () => {
@@ -135,5 +132,4 @@ form.addEventListener("submit", (e) => {
     input.value = "";
 });
 
-// Initial render
 renderTasks();
