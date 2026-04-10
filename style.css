@@ -1,1 +1,264 @@
 @import "tailwindcss";
+
+@theme {
+  --font-anton: 'Anton', sans-serif;
+  --animate-explode: explode 0.6s ease-in forwards;
+
+  @keyframes explode {
+    0% {
+      transform: scale(1) rotate(0deg);
+      filter: brightness(1) sepia(0) hue-rotate(0deg);
+      opacity: 1;
+    }
+    15% {
+      transform: scale(1.05) translate(-4px, 4px) rotate(-3deg);
+      filter: brightness(1.2) sepia(0.3) hue-rotate(-20deg);
+      opacity: 1;
+    }
+    30% {
+      transform: scale(0.95) translate(4px, -4px) rotate(4deg);
+      filter: brightness(1.5) sepia(0.6) hue-rotate(-40deg);
+      opacity: 1;
+    }
+    45% {
+      transform: scale(1.1) translate(-6px, -2px) rotate(-5deg);
+      filter: brightness(2) sepia(1) hue-rotate(-60deg);
+      opacity: 1;
+    }
+    60% {
+      transform: scale(1.3) translate(0, 0) rotate(5deg);
+      filter: brightness(2.5) contrast(1.5);
+      opacity: 0.9;
+    }
+    80% {
+      transform: scale(2) rotate(15deg);
+      filter: brightness(3) blur(10px);
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(3) rotate(25deg) translateY(-20px);
+      filter: brightness(4) blur(25px);
+      opacity: 0;
+    }
+  }
+}
+
+.border_neon_green {
+  @apply border-[#00f632];
+}
+
+.text_green {
+  @apply text-[#00f632];
+}
+
+.bg_green {
+  @apply bg-[#00f632];
+}
+
+.bg-marquee-container {
+  @apply fixed top-0 left-0 w-[200vw] h-screen -z-10 overflow-hidden pointer-events-none opacity-30 flex flex-col justify-center [transform:rotate(-15deg)_scale(1.5)];
+}
+
+.bg-marquee-line {
+  @apply whitespace-nowrap text-[15vw] leading-[0.8] font-anton uppercase text-transparent;
+  -webkit-text-stroke: 2px rgba(204, 255, 0, 0.6);
+}
+
+.bg-marquee-line.pink {
+  -webkit-text-stroke: 2px rgba(255, 0, 153, 0.6);
+}
+
+.bg-marquee-line.blue {
+  -webkit-text-stroke: 2px rgba(0, 240, 255, 0.6);
+}
+
+@keyframes scrollLeft {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollRight {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-scroll-left {
+  @apply animate-[scrollLeft_20s_linear_infinite];
+}
+
+.animate-scroll-right {
+  @apply animate-[scrollRight_25s_linear_infinite];
+}
+
+#tasklist {
+  @apply flex flex-wrap gap-8 py-8 px-4;
+}
+
+.card {
+  @apply w-[160px] h-[160px] shrink-0 cursor-pointer [perspective:800px];
+}
+
+.card-inner {
+  @apply relative w-full h-full [transform-style:preserve-3d] transition-transform duration-[550ms];
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card.flipped .card-inner {
+  @apply [transform:rotateY(180deg)];
+}
+
+.card-front {
+  @apply absolute inset-0 flex flex-col items-center justify-center gap-2 bg-[#ff1493] border-[3px] border-black shadow-[8px_8px_0_#ccff00] [backface-visibility:hidden] [-webkit-backface-visibility:hidden];
+}
+
+.card-back {
+  @apply absolute inset-0 flex flex-col items-center justify-between text-black bg-[#ccff00] border-[3px] border-black shadow-[8px_8px_0_#ff1493] p-4 [transform:rotateY(180deg)] [backface-visibility:hidden] [-webkit-backface-visibility:hidden];
+}
+
+.wtf-text {
+  @apply font-anton text-[2.5rem] text-white bg-black px-[0.4em] py-[0.1em] tracking-[-2px] leading-none border-2 border-black;
+}
+
+.card-hint {
+  @apply font-anton text-[0.45rem] tracking-[0.18em] text-white bg-black px-[0.7rem] py-[0.3rem];
+}
+
+.task-text {
+  @apply font-anton text-[1.4rem] text-black text-center uppercase break-words overflow-y-auto min-h-0 w-full pr-1;
+  @apply [&::-webkit-scrollbar]:w-[6px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-track]:border-l-2 [&::-webkit-scrollbar-track]:border-black [&::-webkit-scrollbar-thumb]:bg-black;
+}
+
+.nuke-btn {
+  @apply bg-[#ff1493] text-black border-2 border-black px-4 py-2 mt-2 cursor-pointer font-anton uppercase text-[0.8rem] shadow-[4px_4px_0_#000] transition-all duration-200 hover:bg-[#db117d] hover:shadow-[2px_2px_0_#000];
+}
+
+.empty-state {
+  @apply w-full font-anton text-[2.5rem] md:text-[5.5rem] leading-[1.1] md:leading-[1.05] text-center uppercase tracking-tighter text-white bg-black p-6 md:p-12 border-4 md:border-8 border-white shadow-[10px_10px_0_#ff1493] md:shadow-[24px_24px_0_#ff1493] rotate-2 md:-rotate-1 transition-all;
+}
+
+
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20%,
+  60% {
+    transform: translateX(-8px) rotate(-2deg);
+  }
+
+  40%,
+  80% {
+    transform: translateX(8px) rotate(2deg);
+  }
+}
+
+.shake {
+  @apply animate-[shake_0.4s_ease-in-out_both] border-[#ff1493] shadow-[8px_8px_0_#ff1493];
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  70% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.pop-in {
+  @apply animate-[popIn_0.3s_ease-out_forwards];
+}
+
+body.light-theme {
+  @apply !bg-[#f4f4f0];
+}
+
+body.light-theme header {
+  @apply !bg-white !border-black !shadow-[12px_12px_0_#ccff00];
+}
+
+body.light-theme header h1 {
+  @apply !text-black;
+  -webkit-text-stroke: 1px #000;
+}
+
+body.light-theme #form {
+  @apply !text-black;
+}
+
+body.light-theme #field {
+  @apply !border-[3px] !border-black !shadow-[6px_6px_0_#000];
+}
+
+body.light-theme #submit {
+  @apply !border-[3px] !border-black !shadow-[6px_6px_0_#000] !text-black;
+}
+
+body.light-theme .empty-state {
+  @apply !bg-white !text-black !border-black !shadow-[10px_10px_0_#00f632] md:!shadow-[24px_24px_0_#00f632];
+}
+
+body.light-theme .empty-state span {
+  @apply !text-[#ff1493];
+}
+
+body.light-theme .wtf-text {
+  @apply !bg-white !text-black !border-black;
+}
+
+body.light-theme .card-hint {
+  @apply !bg-white !text-black;
+}
+
+body.light-theme .bg-marquee-line {
+  -webkit-text-stroke: 2px rgba(0, 0, 0, 0.15);
+}
+
+body.light-theme .bg-marquee-line.pink {
+  -webkit-text-stroke: 2px rgba(255, 0, 153, 0.4);
+}
+
+body.light-theme .bg-marquee-line.blue {
+  -webkit-text-stroke: 2px rgba(0, 240, 255, 0.4);
+}
+
+
+
+/*le style de l'explosion*/
+@keyframes nuclearFlash {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.screen-shake {
+  animation: screenShake 0.5s ease-in-out both;
+}
+
+/*le style du secouement de l'écran*/
+@keyframes screenShake {
+  0%, 100% { transform: translate(0, 0) scale(1); filter: blur(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translate(-15px, 15px) scale(1.02); filter: blur(3px); }
+  20%, 40%, 60%, 80% { transform: translate(15px, -15px) scale(1.02); filter: blur(3px); }
+}

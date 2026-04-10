@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WTF TODO</title>
+  <script type="module" crossorigin src="/assets/index-Dsr86_JN.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-B42QyKth.css">
+</head>
+
+
+<body class="bg-black [.light-theme&]:bg-[#f4f4f0] [.light-theme&]:text-black min-h-screen w-full pt-4 md:pt-6 overflow-x-hidden transition-colors duration-300 relative">
+    <div class="absolute top-4 right-4 md:top-8 md:right-8 z-50">
+        <button id="theme-toggle" class="bg-[#ccff00] text-black font-['Anton',_sans-serif] uppercase px-4 py-2 md:px-6 md:py-3 border-[3px] border-black shadow-[6px_6px_0_#ff1493] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all z-50 text-sm md:text-xl cursor-pointer">
+            Light Mode
+        </button>
+    </div>
+
+    <div class="bg-marquee-container">
+        <div class="bg-marquee-line animate-scroll-left [.light-theme_&]:![-webkit-text-stroke:2px_rgba(0,0,0,0.15)]">DO IT NOW •Q NO EXCUSES • DO IT NOW • NO EXCUSES • DO ITNOW • NO EXCUSES</div>
+        <div class="bg-marquee-line pink animate-scroll-right [.light-theme_&]:![-webkit-text-stroke:2px_rgba(255,0,153,0.4)]">GET SHIT DONE • GET SHIT DONE • GET SHIT DONE • GETSHIT DONE</div>
+        <div class="bg-marquee-line blue animate-scroll-left [.light-theme_&]:![-webkit-text-stroke:2px_rgba(0,240,255,0.4)]">TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODOTODO</div>
+        <div class="bg-marquee-line animate-scroll-right [.light-theme_&]:![-webkit-text-stroke:2px_rgba(0,0,0,0.15)]">DO IT NOW • NO EXCUSES • DO IT NOW • NO EXCUSES • DO IT NOW • NO EXCUSES</div>
+        <div class="bg-marquee-line pink animate-scroll-left [.light-theme_&]:![-webkit-text-stroke:2px_rgba(255,0,153,0.4)]">GET SHIT DONE • GET SHIT DONE • GET SHIT DONE • GETSHIT DONE</div>
+    </div>
+
+    <header class="border_neon_green [.light-theme_&]:!bg-white [.light-theme_&]:!border-black [.light-theme_&]:!shadow-[12px_12px_0_#ccff00] mx-5 md:mx-auto mb-16 border-b-5 border-r-5 bg-black p-4 md:p-10 md:max-w-4xl md:text-center shadow-brutal transform -rotate-2 md:-rotate-1">
+        <h1 class=" text-white [.light-theme_&]:text-black [.light-theme_&]:![-webkit-text-stroke:1px_#000] text-4xl md:text-7xl font-['Anton',_sans-serif] tracking-tighter uppercase leading-none">
+            WTF ToDo
+        </h1>
+        <p class="font-mono text-xl md:text-2xl mt-4 md:mt-6 text-pink-600 uppercase font-bold tracking-widest overflow-hidden">
+            Stop crying, start doing.
+        </p>
+    </header>
+
+    <div id="form" class="text-white px-5 md:px-0 md:max-w-4xl md:mx-auto">
+        <form class="flex flex-col md:flex-row gap-4 md:gap-6 w-full justify-center items-center">
+            <input id="field" autocomplete="off" class="w-full md:w-2/3 bg-white py-4 text-black pl-4 font-['Anton',_sans-serif] text-xl md:text-2xl border-[4px] border-black shadow-[8px_8px_0_#ccff00] focus:outline-none focus:translate-y-1 focus:translate-x-1 focus:shadow-[4px_4px_0_#ccff00] transition-all" placeholder="ENTER A TASK RIGHT NOW">
+            <button id="submit" type="submit" class="bg_green w-full md:w-auto py-4 px-8 text-black font-['Anton',_sans-serif] text-xl md:text-2xl uppercase border-[4px] border-black shadow-[8px_8px_0_#ff1493] hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0_#ff1493] active:translate-x-2 active:translate-y-2 active:shadow-none transition-all cursor-pointer">Add Task</button>
+        </form>
+    </div>
+
+    <div id="tasklist" class="text-white [.light-theme_&]:text-black px-5 md:px-8 w-full md:max-w-5xl md:mx-auto md:!grid md:grid-cols-3 md:!gap-8 md:[&_.card]:!w-full md:[&_.card]:!h-auto md:[&_.card]:!aspect-square">
+
+    </div>
+
+</body>
+
+</html>
