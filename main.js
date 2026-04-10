@@ -76,7 +76,7 @@ function renderTasks(animateId = null) {
         const nukeBtn = card.querySelector('.nuke-btn');
         nukeBtn.addEventListener('click', (e) => {
           e.stopPropagation();
-          card.classList.add('exploding');//Déclenche le gonflement/surcharge de la carte
+          card.classList.add('animate-explode', 'pointer-events-none', 'z-[100]', 'relative');//Déclenche le gonflement/surcharge de la carte
           
           setTimeout(() => {
             const flash = document.createElement("div");
